@@ -20,7 +20,7 @@ body{
 }
 .taskInput input{
     width: 20%;
-    margin-left: 35%;
+    /* margin-left: ; */
     height: 45px;
     padding: 12px;
     color: #111111;
@@ -86,12 +86,14 @@ box-shadow: 3px 3px 1px 1px;
 /*doneCol component css start here*/
 #doneCol{
 /*  background-color: #0000006b; */
-  margin-left: 5%;
-  width: 30%;
-  height: 500px;
-  border: 1px solid black;
+  width: 25%;
+  height: 75%;
+  border: 2px solid black !important;
   color: whitesmoke;
   border-radius: 10px;
+  margin-left:66%;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;
 }
 /*doneCol component css ends here*/
 .table_head_todo{
@@ -117,7 +119,7 @@ box-shadow: 3px 3px 1px 1px;
   color:black;
   text-align: center;
   border-radius: 7px;
-  margin-top: 2%;
+/*  margin-top: 2%;*/
   border: 1px solid black;
 }
 #doneCol .task_card{
@@ -127,7 +129,7 @@ box-shadow: 3px 3px 1px 1px;
   color:black;
   text-align: center;
   border-radius: 7px;
-  margin-top: 2%;
+/*  margin-top: 2%;*/
   border: 1px solid black;
 }
 #inprogressCol .task_card{
@@ -138,5 +140,99 @@ box-shadow: 3px 3px 1px 1px;
   text-align: center;
   border-radius: 7px;
   border: 1px solid black;
-  margin-top: 2%;
+/*  margin-top: 2%;*/
+}
+
+**************************************************************************************************************************************************
+
+.App {
+  text-align: center;
+  width: 95%;
+  margin:;
+}
+
+.container-drag {
+  text-align: center;
+}
+
+.todo {
+  position: absolute;
+  height: 75%;
+  margin-left: 9%;
+  top: 10;
+  width: 25%;
+  border: 1px solid black;
+  color: whitesmoke;
+  border-radius: 10px;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;  
+  background-color: #FBF2ED;
+  border-style: solid;
+  border-width: 2px;
+  color: #45597E;
+}
+.header {
+  display: inline-block;
+  color: #45597E;
+  font-family: sans-serif;
+  margin: 0;
+  width:100%;
+}
+.task-header {
+  display: inline-block;
+  background-color: #DBE2F4;
+  color: white;
+  font-family: sans-serif;
+  width:100%;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px; 
+  padding:10px ;
+  font-weight: bold;
+  border-bottom-style: solid;
+  border-width: 2px;
+}
+.droppable {
+  position: absolute;
+  height: 75%;
+  margin-left:38%;
+  background-color: #FBF2ED;
+  border-style: solid;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;
+  color: white;
+  width: 25%;
+  border: 2px solid black;
+  color: whitesmoke;
+  border-radius: 15px;
+
+}
+
+.draggable {
+  cursor: pointer;
+  background-color: #4FC897;
+  height: 40px;
+  color:black;
+  font-family: sans-serif;
+  border-top-left-radius:5%;
+  border-top-right-radius:5%;  
+  text-align: center;
+  border-radius: 7px;
+  margin: 2%;
+  border: 1px solid black;
+  background-color: #949494!important;
+}
+#doneCol .draggable{
+  background-color:#00C99A!important;
+}
+#inprogresscol .draggable{
+  background-color:#AF94F3!important;
+}
+#inprogresscol  .task-header{
+  background-color: #B654EE;
+}
+#doneCol .task-header{
+  background-color: #03C76E;
+}
+.todo .task-header{
+  background-color: #5B758A;
 }

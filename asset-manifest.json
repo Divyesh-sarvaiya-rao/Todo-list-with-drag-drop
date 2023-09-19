@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Todo-list-with-drag-drop/static/css/main.aa26fa14.css",
+    "main.js": "/Todo-list-with-drag-drop/static/js/main.677039bc.js",
+    "static/js/787.76eca089.chunk.js": "/Todo-list-with-drag-drop/static/js/787.76eca089.chunk.js",
+    "static/media/background_image.jpg": "/Todo-list-with-drag-drop/static/media/background_image.1cfae7e2433f42e970a2.jpg",
+    "index.html": "/Todo-list-with-drag-drop/index.html",
+    "main.aa26fa14.css.map": "/Todo-list-with-drag-drop/static/css/main.aa26fa14.css.map",
+    "main.677039bc.js.map": "/Todo-list-with-drag-drop/static/js/main.677039bc.js.map",
+    "787.76eca089.chunk.js.map": "/Todo-list-with-drag-drop/static/js/787.76eca089.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa26fa14.css",
+    "static/js/main.677039bc.js"
+  ]
+}

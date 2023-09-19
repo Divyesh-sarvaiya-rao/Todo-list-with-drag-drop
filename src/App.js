@@ -10,10 +10,16 @@ function App() {
   const getlistfromlocal = localStorage.getItem('todo');
   const listofarray = JSON.parse(getlistfromlocal);
   // setListTodo([...listTodo,listofarray]);
-  // if(listofarray=null){
-  //   const [listTodo,setListTodo] = useState(listofarray);
-  // }
-  const [listTodo,setListTodo] = useState([],listofarray);
+  let array;
+  if(!listofarray){
+    // console.log("null")
+     array =[];
+  }else{
+    // console.log("note null"); 
+    array=listofarray;
+  }
+  // console.log(array);
+  const [listTodo,setListTodo] = useState(array);
   let addList = (inputText)=>{
     if(!inputText){
       alert('please add some task');
@@ -30,12 +36,12 @@ function App() {
     }
       localStorage.setItem('todo',JSON.stringify(listTodo));
   }
-  const list = localStorage.getItem('todo');
-  const listedArray = JSON.parse(list);
+  // const list = localStorage.getItem('todo');
+  // const listedArray = JSON.parse(list);
   // setListTodo([...listTodo,listedArray]);
-  console.log("listed array ",listedArray);
+  // console.log("listed array ",listedArray);
   // console.log(setListTodo)/
-  console.log("list todo",listTodo);
+  // console.log("list todo",listTodo);
     const onDragOver = (ev) => {
         ev.preventDefault();
     }
@@ -44,58 +50,60 @@ function App() {
        
        let tasks = listTodo.filter((tasks) => {
            if (tasks.name === id) {
+            console.log(cat, "category");
                tasks.category = cat;
            }
            return tasks;
        });
-
-      setListTodo([...listTodo,tasks]);
+       console.log("list task",tasks)
+      localStorage.setItem('todo',JSON.stringify(tasks));
+      setListTodo(tasks);
     }
-    const  onDragStart = (ev, id) => {
-        console.log('dragstart:',id);
+    const onDragStart = (ev, id) => {
+        console.log('dragstart:',id);     
         ev.dataTransfer.setData("id", id);
     }
-   const tasks = {
-            todo: [],
-            inprogress:[],
-            done: [],
-        }
-   listTodo.forEach ((t) => {
-    tasks[t.category].push(
-        <div key={t.name} 
-            onDragStart = {(e) => onDragStart(e, t.name)}
-            draggable
-            className="draggable"
-            >
-            {t.name}
-        </div>
-    );
-    });
+   var tasks = {
+            'todo': [],
+            'inprogress':[],
+            'done': [],
+          }
+   function arrayTomap(){listTodo.map(t=>{
+       console.log('push task: ',tasks, t.category);
+       tasks[t.category].push(
+           <div key={t.name} 
+               onDragStart = {(e) => onDragStart(e, t.name)}
+               draggable
+               className="draggable"
+               >
+               {t.name}
+           </div>
+       );
+       });}
+      arrayTomap();
+
 
   return(
     <>
-                     
     <div className="container-drag">
                     <div className='taskInput'>
                     <Input addList={addList}/>
                     </div>
-                <div className="todo"
-                      onDrop={(e)=>{onDrop(e, "todo")}}>
+                <div className="todo"onDrop={(e)=>{onDrop(e, "todo")}}>
                     <span className="task-header">TO-DO LIST</span>
-                    {tasks.todo}
+                    <nav>{tasks.todo}</nav>
                 </div>
                   <div className="droppable" id='inprogresscol'
-                    onDrop={(e)=>onDrop(e, "inprogress")}
-                    onDragOver={(ev)=>onDragOver(ev)}>
+                      onDrop={(e)=>onDrop(e, "inprogress")} 
+                      onDragOver={(ev)=>onDragOver(ev)}>
                     <span className="task-header">IN PROGRESS</span>
-                    {tasks.inprogress}
+                    <nav>{tasks.inprogress}</nav>
                 </div>
                <div className='droppable' id='doneCol'
                     onDrop={(e)=>onDrop(e, "done")}
                     onDragOver={(ev)=>onDragOver(ev)}>
                     <span className="task-header">DONE</span>
-                     {tasks.done}
-
+                     <nav>{tasks.done}</nav>
                 </div>
             </div>
 

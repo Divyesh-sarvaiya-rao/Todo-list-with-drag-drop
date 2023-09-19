@@ -9,9 +9,9 @@ function Input(props) {
     }
   }
 	return (
-	
+		<>
 			<div className="taskInput">
-				<input type="text" placeholder="Add your task" 
+				<input type="text" placeholder="Add your task" name='inputText'
 					value={inputText}
 					onChange={e =>{setInputText(e.target.value);}} 
 	            	onKeyUp={handelEnterPress} />
@@ -20,7 +20,7 @@ function Input(props) {
 					setInputText("")}}
 	        	>Add Task</button>
 			</div>
-		
+		</>
 	);
 }
 

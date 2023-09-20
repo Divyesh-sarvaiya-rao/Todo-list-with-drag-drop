@@ -49,7 +49,7 @@ function App() {
        let id = ev.dataTransfer.getData("id");
        
        let tasks = listTodo.filter((tasks) => {
-           if (tasks.name === id) {
+           if (tasks.id === id) {
             console.log(cat, "category");
                tasks.category = cat;
            }
@@ -60,27 +60,38 @@ function App() {
       setListTodo(tasks);
     }
     const onDragStart = (ev, id) => {
-        console.log('dragstart:',id);     
+        console.log('dragstart:',id);
         ev.dataTransfer.setData("id", id);
     }
+    const taskDelete = (id) => () =>{
+      const choice = window.confirm("Are you sure you want to delete Task ?");
+      if (choice) {
+        const newTask = listTodo.filter((listTodo)=> listTodo.id !== id);
+        localStorage.setItem('todo',JSON.stringify(newTask));
+        setListTodo(newTask);
+        console.log("task deleted with new array",newTask); 
+      }
+    };
    var tasks = {
             'todo': [],
             'inprogress':[],
             'done': [],
           }
    function arrayTomap(){listTodo.map(t=>{
-       console.log('push task: ',tasks, t.category);
+       console.log('push task: ',tasks);
        tasks[t.category].push(
            <div key={t.name} 
-               onDragStart = {(e) => onDragStart(e, t.name)}
+               onDragStart = {(e) => onDragStart(e, t.id)}
                draggable
                className="draggable"
                >
                {t.name}
+              <button className='delete_button' onClick={taskDelete(t.id)}><i className="fa-solid fa-circle-xmark"></i></button>
            </div>
        );
        });}
       arrayTomap();
+
 
 
   return(

@@ -6,9 +6,10 @@
 /*    box-sizing: border-box;*/
 }
 body{
-background-image: url('./images/background_image.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+ /* background-image: url('https://imgur.com/a/ctLzVdF');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;*/
   overflow-x: hidden;
 /*  overflow-y: hidden;*/
 }
@@ -183,7 +184,7 @@ nav {
   height: 90%;
   overflow:hidden; overflow-y:scroll;
 }
-/*scrollar bas css*/
+/*scrollar bar css*/
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -204,4 +205,14 @@ nav {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: darkgrey; 
+}
+/*scrollar bar css*/
+.delete_button{
+    border: none;
+    background-color: transparent;
+    float: right;
+    padding:2%;
+}
+.delete_button i:hover{
+  color: red;  
 }

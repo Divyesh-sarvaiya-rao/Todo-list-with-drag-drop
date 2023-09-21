@@ -50,12 +50,12 @@ function App() {
        
        let tasks = listTodo.filter((tasks) => {
            if (tasks.id === id) {
-            console.log(cat, "category");
+            console.log("category to change:", cat);
                tasks.category = cat;
            }
            return tasks;
        });
-       console.log("list task",tasks)
+       console.log("task list :",tasks)
       localStorage.setItem('todo',JSON.stringify(tasks));
       setListTodo(tasks);
     }
@@ -65,11 +65,13 @@ function App() {
     }
     const taskDelete = (id) => () =>{
       let choice = window.confirm("Are you sure you want to delete task ?");
-      console.log("task deleted with id : ",id)
-      const newTask = listTodo.filter((listTodo)=> listTodo.id !== id);
-      console.log("task deleted with new array",newTask); 
-      localStorage.setItem('todo',JSON.stringify(newTask));
-      setListTodo(newTask);
+      if (choice) {
+        const newTask = listTodo.filter((listTodo)=> listTodo.id !== id);
+        // console.log("task deleted with id : ",id)
+        console.log("task deleted and generate new array :",newTask); 
+        localStorage.setItem('todo',JSON.stringify(newTask));
+        setListTodo(newTask);
+      }
     };
    var tasks = {
             'todo': [],
@@ -90,9 +92,6 @@ function App() {
        );
        });}
       arrayTomap();
-
-
-
   return(
     <>
     <div className="container-drag">
@@ -118,9 +117,7 @@ function App() {
                      <nav>{tasks.done}</nav>
                 </div>
             </div>
-
     </>
-
     );
 };
 export default App;

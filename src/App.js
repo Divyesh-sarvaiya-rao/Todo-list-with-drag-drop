@@ -64,13 +64,12 @@ function App() {
         ev.dataTransfer.setData("id", id);
     }
     const taskDelete = (id) => () =>{
-      const choice = window.confirm("Are you sure you want to delete Task ?");
-      if (choice) {
-        const newTask = listTodo.filter((listTodo)=> listTodo.id !== id);
-        localStorage.setItem('todo',JSON.stringify(newTask));
-        setListTodo(newTask);
-        console.log("task deleted with new array",newTask); 
-      }
+      let choice = window.confirm("Are you sure you want to delete task ?");
+      console.log("task deleted with id : ",id)
+      const newTask = listTodo.filter((listTodo)=> listTodo.id !== id);
+      console.log("task deleted with new array",newTask); 
+      localStorage.setItem('todo',JSON.stringify(newTask));
+      setListTodo(newTask);
     };
    var tasks = {
             'todo': [],
@@ -100,7 +99,9 @@ function App() {
                     <div className='taskInput'>
                     <Input addList={addList}/>
                     </div>
-                <div className="todo"onDrop={(e)=>{onDrop(e, "todo")}}>
+                <div className="todo"
+                    onDrop={(e)=>{onDrop(e, "todo")}}
+                     onDragOver={(ev)=>onDragOver(ev)}>
                     <span className="task-header">TO-DO LIST</span>
                     <nav>{tasks.todo}</nav>
                 </div>

@@ -6,11 +6,11 @@
 /*    box-sizing: border-box;*/
 }
 body{
- /* background-image: url('https://imgur.com/a/ctLzVdF');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: black;*/
-  overflow-x: hidden;
+ /* background-image: url('https://imgur.com/a/ctLzVdF'); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    background-color: rgb(85 191 190);
+  /* overflow-x: hidden; */
 /*  overflow-y: hidden;*/
 }
 /*input component css start*/
